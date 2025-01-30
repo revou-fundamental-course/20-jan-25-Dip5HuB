@@ -194,6 +194,10 @@ body {
   color: #333;
 }
 
+.btn-reset:hover{
+  color: #ffffff;
+}
+
 /* ========== Results Section ========== */
 .sub-container {
   background-color: #ffffff;
