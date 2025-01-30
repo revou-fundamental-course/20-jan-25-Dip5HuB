@@ -1,113 +1,154 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator BMI</title>
-    <link rel="stylesheet" href="CSS\style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator BMI</title>
+  <link rel="stylesheet" href="./css/style.css">
+
 </head>
 <body>
-    <header class="main-header">
-        <h1>Kalkulator BMI</h1>
-    </header>
+  <header class="header">
+    <h1>KALKULATOR BMI</h1>
+  </header>
 
-    <main>
-        <!-- Left Content -->
-        <section>
-            <!-- Introduction -->
-            <article>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and
-                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap
-                    into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-                    the
-                    release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                    publishing
-                    software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </article>
+  <main class="main-container">
+    <section id="home" class="container">
+        <h2 class="title">Ayo Hitung BMI Mu</h2>
+        <p class="paragraph">
+          Berat badan ideal adalah impian semua orang. Tidak hanya memiliki bentuk tubuh yang menunjang penampilan, berat badan ideal juga menandakan kondisi tubuh yang sehat. Bagaimana denganmu? 
+          <br>
+          <br>
+          Yuk, hitung sekarang di kalkulator BMI.
+        </p>
 
-            <!-- Form -->
-            <form>
+      <div>
+        <form id="form" class="form" aria-label="Kalkulator BMI">
+          <div>
+            <label class="form-label" for="gender">Jenis Kelamin</label>
+            <div class="input-group">
+              <div class="radio-group">
+                <input type="radio" name="gender" id="male" value="Pria" class="form-input-check" checked>
+                <label for="male">Pria</label>
+              </div>
+              <div class="radio-group">
+                <input type="radio" name="gender" id="female" value="Wanita" class="form-input-check">
+                <label for="female">Wanita</label>
+              </div>
+            </div>
+            <span id="genderErrorMessage" class="error-message"></span>
+          </div>
+          <div>
+            <label class="form-label" for="weight">Berat Badan</label>
+            <div class="input-group">
+              <span class="input-group-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                  <path
+                    d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z" />
+                </svg>
+              </span>
+              <input type="number" name="weight" id="weight" class="form-input" min="1" aria-describedby="weightDesc" placeholder="Masukkan berat badan Anda dalam kg" required>
+              <span class="input-group-desc" id="weightDesc">Kg</span>
+            </div>
+            <span id="weightErrorMessage" class="error-message"></span>
+          </div>
+          <div>
+            <label class="form-label" for="age">Usia</label>
+            <div class="input-group">
+              <span class="input-group-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                  <path
+                    d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z" />
+                </svg>
+              </span>
+              <input type="number" name="age" id="age" class="form-input" min="1" aria-describedby="ageDesc" placeholder="Masukkan usia Anda dalam tahun" required>
+              <span class="input-group-desc" id="ageDesc">Tahun</span>
+            </div>
+            <span id="ageErrorMessage" class="error-message"></span>
+          </div>
+          <div>
+            <label class="form-label" for="height">Tinggi Badan</label>
+            <div class="input-group">
+              <span class="input-group-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                  <path
+                    d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z" />
+                </svg>
+              </span>
+              <input type="number" name="height" id="height" class="form-input" min="1" aria-describedby="heightDesc" placeholder="Masukkan tinggi badan Anda dalam cm" required >
+              <span class="input-group-desc" id="heightDesc">Cm</span>
+            </div>
+            <span id="heightErrorMessage" class="error-message"></span>
+          </div>
+          <div>
+            <button type="button" class="btn" onclick="checkBMI()">Hitung BMI</button>
+            <button type="reset" class="btn btn-reset">Reset</button>
+          </div>
+        </form>
+      </div>
+      <div class="mb-1">
+        <h3 class="sub-title">Keunggulan fitur</h3>
+        <ol class="features">
+          <li>Menghitung berat badan</li>
+          <li>Menentukan kategori berat badan ideal atau tidak</li>
+          <li>Mempersiapkan program penurunan berat badan</li>
+        </ol>
+      </div>
+      <div>
+        <p class="paragraph mb-1">
+          Kalkulator ini hanya boleh digunakan oleh orang dewasa (wanita hamil atau menyusui tidak boleh mengandalkan pembacaan BMI ini) dan tidak ada tindakan yang harus diambil berdasarkan nilainya selain berkonsultasi dengan orang yang memenuhi syarat seperti dokter.
+        </p>
+        <p class="paragraph">
+          Kalkulator akan memberi anda gambaran tentang perbandingan berat badan anda dengan nilai umum. Indek Massa Tubuh (atau BMI) dihitung sebagai berat badan anda (dalam kilogram) dibagi dengan kuadrat tinggi badan anda (dalam meter) atau BMI = Kg/M<sup>2</sup>.
+        </p>
+      </div>
+    </section>
 
-                <div class="form-group">
-                    <label>
-                        Jenis Kelamin<br>
-                        <input type="radio" name="gender"   value="Pria" required> Pria
-                        <input type="radio" name="gender" value="Wanita" required> Wanita
-                    </label>
-                </div>
+    <section id="result" class="container">
+      <h2 class="title">Hasil</h2>
+      <div class="sub-container mb-1">
+        <h3 id="result-title" class="result-title">Kategori BMI</h3>
+        <div id="result-bmi" class="result-bmi">0</div>
+        <p id="result-desc" class="result-desc">Status BMI</p>
+        <button class="btn">Download Hasil BMI</button>
+      </div>
+      <div class="mb-1 paragraph">
+        <p id="result-text">Hasil BMI</p>
+        <p id="suggestion-text">Informasi BMI</p>
+        <p id="advice-text">Saran BMI</p>
+        <div class="button-cta">
+          <button class="btn">Konsultasi Ahli Gizi Via Aplikasi</button>
+          <button class="btn">Registrasi Online Ahli Gizi</button>
+        </div>
+        <p>
+          BMI tidak sepenuhnya mewakili diagnosis menyeluruh dari kesehatan tubuh dan resiko penyakit seseorang, Anda perlu konsultasi lebih lanjut mengenai resiko dan kekhawatiran Anda terkait dengan berat badan Anda.
+        </p>
+      </div>
+      <div class="sub-container paragraph">
+        <h4 id="risk-title">Risk Tittle</h4>
+        <ul id="list-risk" class="list-risk">list Risk</ul>
+        <div class="button-cta">
+          <button class="btn">Konsultasi Dokter Via Aplikasi</button>
+          <button class="btn">Registrasi Online Sekarang</button>
+        </div>
+      </div>
+      <div class="download-app">
+        <h6>Download Aplikasi</h6>
+        <div class="button-cta">
+          <img src="assets/google-play.png" alt="Google Play" class="img" aria-label="Download di Google Play">
+          <img src="assets/apple-store.jpg" alt="Apple Store" class="img" aria-label="Download di Apple Store">
+        </div>
+      </div>
+      <div>
+        <button class="btn" id="resetBtn" onclick="regenerateBMI()">Hitung Lagi</button>
+      </div>
+    </section>
+  </main>
 
-                <div class="form-group">
-                    <label for="input-berat-badan">Berat Badan (kg)</label>
-                    <input type="number" id="input-berat-badan" placeholder="80" required>
-                </div>
+  <footer class="footer">
+    <p>Create By DipsHub</p>
+  </footer>
 
-                <div class="form-group">
-                    <label for="input-usia">Usia (tahun)</label>
-                    <input type="number" id="input-usia" placeholder="27" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="input-tinggi-badan">Tinggi Badan (cm)</label>
-                    <input type="number" id="input-tinggi-badan" placeholder="180" required>
-                </div>
-
-                <div>
-                <button type="button" id="calculateBtn">Hitung BMI</button>
-                <button type="reset">Reset</button>
-                </div>
-            </form>
-
-            <!-- Feature Information -->
-            <article>
-                <header>
-                    <h2>Feature Information</h2>
-                </header>
-
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and
-                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap
-                    into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-                    the
-                    release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                    publishing
-                    software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </article>
-        </section>
-
-        <section>
-            <section class="result-section">
-                <header>
-                    <h2>Hasil</h2>
-                </header>
-
-                <div>
-                    <span id="result-bmi">0</span>
-                </div>
-            </section>
-
-            <article>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and
-                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap
-                    into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-                    the
-                    release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                    publishing
-                    software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </article>
-        </section>
-    </main>
-
-    <footer>
-        <span>Made by DipsHUB</span>
-    </footer>
-</body>
+  <script src="./js/script.js"></script>
 </body>
 </html>

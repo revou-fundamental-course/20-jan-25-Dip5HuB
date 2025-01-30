@@ -1,76 +1,274 @@
-/* Ini File CSS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-main {
-    display: flex;
-    gap: 32px;
-    padding: 32px;
+/* ========== Global Styles ========== */
+:root {
+  --font-family: 'Poppins', sans-serif;
+  --primary-color: #4ac3c3;
+  --secondary-color: #f1f1f1;
+  --error-color: #ff0000;
+  --base-font-size: 1rem;
+  --container-padding: 2rem;
 }
 
-footer {
-    text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  scroll-behavior: smooth;
 }
 
-.main-header {
-    text-align: center;
+/* ========== Header Styles ========== */
+.header {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  /* position: sticky;
+  top: 0;
+  z-index: 100; */
 }
 
-
-article{
-    text-align: justify;
+.header h1 {
+  margin: 0;
+  letter-spacing: 1px;
 }
 
-input[type=number] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
+body {
+  background-color: #ffffff;
+  line-height: 1.5;
 }
 
-form {
-    background-color: antiquewhite;
-    padding: 32px;
+/* ========== Layout Styles ========== */
+.main-container {
+  padding: var(--container-padding);
+  margin: 2rem auto;
+  background-color: #b5f0f0;
+  border-radius: 15px;
+  max-width: 1200px;
+  width: 90%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
-.form-group {
-    display: flex;
+.container {
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #b5f0f0;
+  width: 90%;
+}
+
+/* ========== Footer Styles ========== */
+.footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* ========== Typography ========== */
+.title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin: 1rem 0;
+  font-weight: 600;
+}
+
+.sub-title {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 500;
+}
+
+.paragraph {
+  text-align: justify;
+  color: #1f1e1e;
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  line-height: 1.6;
+}
+
+.paragraph sup {
+  font-size: 0.8em;
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+/* ========== Form Elements ========== */
+.form {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border: 3px solid;
+  border-color: var(--primary-color);
+}
+
+.input-group {
+  display: flex;
+  width: 100%;
+}
+
+/* Untuk grup radio button khusus */
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+}
+
+.input-group input[type="radio"] {
+  margin: 0;
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.input-group label {
+  white-space: nowrap;
+  margin: 0;
+}
+
+.input-group-desc,
+.input-group-icon {
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: 1px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+}
+
+.input-group-icon {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+/* ========== Buttons ========== */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #136767;
+  transform: translateY(-1px);
+}
+
+.btn-reset {
+  background-color: white;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+/* ========== Results Section ========== */
+.sub-container {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.result-bmi {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.button-cta {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 992px) {
+  .main-container {
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+  }
+  
+  .container {
+    margin: 1.5rem auto;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 1.5rem;
+  }
+  
+  .main-container {
     flex-direction: column;
-    padding-bottom: 16px;
+  }
+  
+  .input-group {
+    flex-wrap: wrap;
+  }
+  
+  .input-group > * {
+    width: 100%;
+    border-radius: 5px !important;
+    margin: 0.25rem 0;
+  }
 }
 
-/* button {
-    border: none;
-    padding: 8px;
-    color: antiquewhite;
+/* ========== Utility Classes ========== */
+.mb-1 {
+  margin-bottom: 1.5rem;
 }
 
-.bg-black {
-    background-color: black;
+.img {
+  width: 100px;
+  height: auto;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
-.bg-cadet-blue {
-    background-color: cadetblue;
-} */
-
-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.img:hover {
+  transform: scale(1.05);
 }
 
-button:hover {
-    background-color: #0056b3;
-}
-
-.result-section {
-    padding: 16px;
-    text-align: center;
-    background-color: antiquewhite;
-}
-
-#result-bmi {
-    font-size: xxx-large;
-    font-family: math;
+.list-risk {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
 }
